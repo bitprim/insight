@@ -151,7 +151,7 @@ ScopedPureSocket.prototype.emit = function(event, data, callback) {
 
 angular.module('insight.socket').factory('getSocket',
   function($rootScope) {
-    var socket = new WebSocket('ws://localhost:3001/ws');
+    var socket = new WebSocket('ws://localhost:3001/ws'); //TODO Make configurable
     return function(scope) {
       var scopedSocket = new ScopedPureSocket(socket, $rootScope);
       scope.$on('$destroy', function() {
